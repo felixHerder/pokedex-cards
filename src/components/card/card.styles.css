@@ -2,11 +2,11 @@
   box-sizing: border-box;
   padding: 7px;
   background: #776e39;
-  border: 2px solid rgb(197, 192, 149);
+  border: 2px solid transparent;
   background: linear-gradient(70deg,#ffffff, #000000, #ffffff);
   border-radius: 15px;
   transition:  0.25s ease-out;
-  box-shadow: 0 3px  10px  rgba(0, 0, 0, 0.7);
+  box-shadow: 0 0  5px 0px  rgba(0, 0, 0, 0.6);
 }
 
 .card-container{
@@ -18,12 +18,13 @@
   background: #20282e;
   border-radius: 10px;
   padding:5px 15px;
-  cursor: pointer;
-  height: 420px;
+  height: 360px;
   color:#eee;
 }
 .card-border:hover{
-  transform: scale(1.05);
+  transform: scale(1.01);
+  border:2px solid rgb(151, 246, 255);
+  box-shadow: 0 10px  20px 0px  rgba(0, 0, 0, 0.3);
 }
 
 .title{
@@ -46,14 +47,14 @@
   color:#ccc;
 }
 .hp{
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   color: rgb(255, 224, 138);
 }
 
 
 .image-container{
   background: radial-gradient( hsl(201, 20%, 28%),#172b35);
-  min-height: 220px;
+  min-height: 180px;
   width: 100%;
   display: flex;
   align-items: center;
@@ -68,7 +69,7 @@ img{
   max-width:50%;
   margin-bottom: -25px;
   max-height: 150px;
-  filter: drop-shadow(0px 20px 15px rgba(0, 0, 0, .3));
+  filter: drop-shadow(0px 0px 25px rgba(255, 217, 167, 0.5));
 }
 .bkg0{
   background: url(./img/fall_compressed.jpg);
@@ -97,7 +98,7 @@ img{
  
 
 .abilities{
-  margin-top:10px;
+  margin-top:5px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -110,24 +111,24 @@ img{
   align-items: center;
   height: 100%;
   margin: 0;
+  position: relative;
 }
 
 .ability:nth-child(2),.ability:nth-child(3){
   border-top: 1px solid #ffffff22;
 }
-.abilities p{
-  margin: 7px 10px;
+.ability p{
+  margin: 5px 10px;
   padding: 0;
-  font-size: .9rem;
+  font-size: .8rem;
   font-weight: bold;
- 
   text-transform: capitalize;
   color:#00000000;
   white-space: nowrap;
   background-clip: text;
 }
 
-.abilities span{
+.ability span{
   color:#ccc;
   text-align: center;
   font-size: 0.8rem;
@@ -135,22 +136,38 @@ img{
   white-space: nowrap;
   text-overflow: ellipsis;
   margin-right: 5px;
+  cursor: pointer;
+}
+.ability span[title]:active::before{
+  content:attr(title);
+  position: absolute;
+  font-size: 1rem;
+  line-height: 1rem;
+  color: #ddd;
+  background: #333;
+  padding: 3px 6px;
+  border-radius: 5px;
+  top: 50%;
+  left:50%;
+  transform: translate(-50%,-50%);
+  white-space: normal;
+  text-align: center;
+  width: 100%;
+  z-index: 2;
 }
 
 
 
 .stats{
-  height: 100%;
   font-size: .8rem;
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   margin-top: 10px;
   height: 25px;
 }
 .stats p {
-  margin: 5px 5px;
+  margin-right: 3px;
   color:#ccc;
   text-align: center;
 }
@@ -163,7 +180,7 @@ img{
   color: #111;
   border-radius: 5px;
   margin-right:5px;
-  padding: 0 7px;
+  padding: 0 5px;
   background:#aaa;
 }
 

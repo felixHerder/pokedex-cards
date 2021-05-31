@@ -1,22 +1,30 @@
 import React, { Component } from 'react';
 import './App.css';
 import { CardList } from './components/card-list/card-list.component';
+import { SearchBox } from './components/searchbox/searchbox.component';
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
       pokecards: [],
+      searchBox: '',
       loading: true
     }
+    this.searchBoxChange = this.searchBoxChange.bind(this);
   }
-
+  
   render() {
     return (
       <div className="App">
-        <CardList pokecards={this.state.pokecards} />
+        <SearchBox searchBoxChange={this.searchBoxChange}/>
+        <CardList pokecards={this.state.pokecards} searchBox={this.state.searchBox}/>
       </div>
     );
+  }
+  searchBoxChange(e){
+    this.setState({searchBox: e.target.value});
+  
   }
   componentDidMount() {
     //cache to local storage

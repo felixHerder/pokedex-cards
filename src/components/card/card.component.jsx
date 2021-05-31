@@ -10,12 +10,11 @@ export const Card = (props) => (
         <span className="hp">
           {props.pokemon.hp} HP
         </span>
-
       </div>
       <div
         className={"image-container bkg" +
-          parseInt(props.pokemon.types[0], 36) % 6} >
-        <img src={props.pokemon.img} alt={props.pokemon.name} loading="lazy" />
+          parseInt(props.pokemon.types[0], 36) % 6} title={props.pokemon.name}>
+        <img src={props.pokemon.img} alt={props.pokemon.name}  loading="lazy" />
       </div>
       <div className="stats">
         <p><strong>
@@ -27,8 +26,8 @@ export const Card = (props) => (
             })
           }
         </strong></p>
-        <p>H: <strong>{(props.pokemon.height * 0.1).toFixed(2)}</strong> m</p>
-        <p>W: <strong>{(props.pokemon.weight * 0.1).toFixed(2)}</strong> kg</p>
+        <p><strong>{(props.pokemon.height * 0.1).toFixed(2)}</strong> m</p>
+        <p><strong>{(props.pokemon.weight * 0.1).toFixed(2)}</strong> kg</p>
       </div>
       <div className="abilities">
         {
