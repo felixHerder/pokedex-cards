@@ -1,0 +1,216 @@
+.card-border{
+  box-sizing: border-box;
+  padding: 7px;
+  background: #776e39;
+  border: 2px solid rgb(197, 192, 149);
+  background: linear-gradient(70deg,#ffffff, #000000, #ffffff);
+  border-radius: 15px;
+  transition:  0.25s ease-out;
+  box-shadow: 0 3px  10px  rgba(0, 0, 0, 0.7);
+}
+
+.card-container{
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  justify-content: flex-start;
+  background: #20282e;
+  border-radius: 10px;
+  padding:5px 15px;
+  cursor: pointer;
+  height: 420px;
+  color:#eee;
+}
+.card-border:hover{
+  transform: scale(1.05);
+}
+
+.title{
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 5px;
+}
+.name, .id{
+  margin: 0px 0;
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: #ddd;
+}
+.name{
+  text-transform: capitalize;
+}
+.id{
+  font-weight: normal;
+  font-size: 1.3rem;
+}
+
+
+.image-container{
+  background: radial-gradient( hsl(201, 20%, 28%),#172b35);
+  min-height: 220px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  border: 1px solid rgb(243, 232, 133);
+  box-shadow: 0 0 15px rgb(0, 0, 0,.7);
+  overflow: hidden;
+}
+
+img{
+  max-width:50%;
+  margin-bottom: -25px;
+  max-height: 150px;
+  filter: drop-shadow(0px 20px 15px rgba(0, 0, 0, .3));
+}
+.bkg0{
+  background: url(./img/fall_compressed.jpg);
+  background-size: cover;
+}
+.bkg1{
+  background: url(./img/forest_compressed.jpg);
+  background-size: cover;
+}
+.bkg2{
+  background: url(./img/field_compressed.jpg);
+  background-size: cover;
+}
+.bkg3{
+  background: url(./img/night_compressed.jpg);
+  background-size: cover;
+}
+.bkg4{
+  background: url(./img/grass_compressed.jpg);
+  background-size: cover;
+}
+.bkg5{
+  background: url(./img/fall_compressed.jpg);
+  background-size: cover;
+}
+ 
+
+.abilities{
+  margin-top: 5px;
+  display: flex;
+
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  
+}
+.ability{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0;
+}
+
+.ability:nth-child(2),.ability:nth-child(3){
+  border-top: 1px solid #ffffff22;
+}
+.abilities p{
+  margin: 7px 5px;
+  font-size: .8rem;
+  font-weight: bold;
+ 
+  text-transform: capitalize;
+  filter: brightness(80%);
+  color:#00000000;
+  white-space: nowrap;
+  background-clip: text;
+}
+
+.abilities span{
+  text-align: center;
+  font-size: 0.8rem;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+
+
+.stats{
+  height: 100%;
+  font-size: .8rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+  height: 25px;
+}
+.stats p {
+  margin: 5px 5px;
+  color:#ccc;
+  text-align: center;
+}
+.stats strong{
+  text-transform: capitalize;
+  color: rgb(185, 241, 255);
+  font-weight: normal;
+}
+.types{
+  color: #111;
+  border-radius: 5px;
+  margin-right:5px;
+  padding: 0 7px;
+  background:#aaa;
+}
+
+.normal{
+  background: #aaa;
+}
+.grass{
+  background: #67ec7d;
+}
+.poison{
+  background: #89d31a;
+}
+.fire{
+  background: rgb(255, 148, 61);
+}
+.water{
+  background: rgb(57, 205, 250);
+}
+.electric{
+  background: rgb(250, 237, 57);
+}
+.ground{
+  background: rgb(138, 135, 90);
+}
+.fairy{
+  background: rgb(241, 131, 255);
+}
+.bug{
+  background: rgb(181, 243, 123);
+}
+.flying{
+  background: rgb(209, 209, 209);
+}
+.psychic{
+  background: rgb(173, 101, 255);
+}
+.fighting{
+  background: rgb(255, 133, 133);
+}
+.rock{
+  background: rgb(155, 122, 71);
+}
+.steel{
+  background: rgb(101, 149, 143);
+}
+.ice{
+  background: rgb(156, 255, 250);
+}
+.dragon{
+  background: rgb(255, 178, 90);
+}
+.ghost{
+  background: rgb(214, 214, 214);
+}
+
+
