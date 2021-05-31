@@ -31,19 +31,23 @@
   justify-content: space-between;
   align-items: flex-end;
   margin-bottom: 5px;
-}
-.name, .id{
-  margin: 0px 0;
-  font-size: 1.6rem;
-  font-weight: bold;
-  color: #ddd;
+ 
 }
 .name{
+  margin: 0;
+  color: #eee;
+  font-size: 1.6rem;
+  font-weight: bold;
   text-transform: capitalize;
 }
 .id{
   font-weight: normal;
-  font-size: 1.3rem;
+  font-size: 1rem;
+  color:#ccc;
+}
+.hp{
+  font-size: 1.5rem;
+  color: rgb(255, 224, 138);
 }
 
 
@@ -93,11 +97,10 @@ img{
  
 
 .abilities{
-  margin-top: 5px;
+  margin-top:10px;
   display: flex;
-
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-around;
   height: 100%;
   
 }
@@ -105,6 +108,7 @@ img{
   display: flex;
   justify-content: space-between;
   align-items: center;
+  height: 100%;
   margin: 0;
 }
 
@@ -112,23 +116,25 @@ img{
   border-top: 1px solid #ffffff22;
 }
 .abilities p{
-  margin: 7px 5px;
-  font-size: .8rem;
+  margin: 7px 10px;
+  padding: 0;
+  font-size: .9rem;
   font-weight: bold;
  
   text-transform: capitalize;
-  filter: brightness(80%);
   color:#00000000;
   white-space: nowrap;
   background-clip: text;
 }
 
 .abilities span{
+  color:#ccc;
   text-align: center;
   font-size: 0.8rem;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+  margin-right: 5px;
 }
 
 
@@ -171,7 +177,7 @@ img{
   background: #89d31a;
 }
 .fire{
-  background: rgb(255, 148, 61);
+  background: rgb(253, 136, 41);
 }
 .water{
   background: rgb(57, 205, 250);
@@ -207,7 +213,7 @@ img{
   background: rgb(156, 255, 250);
 }
 .dragon{
-  background: rgb(255, 178, 90);
+  background: rgb(255, 195, 125);
 }
 .ghost{
   background: rgb(214, 214, 214);

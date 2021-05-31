@@ -58,6 +58,7 @@ class App extends Component {
         id: d.id,
         weight: d.weight,
         height: d.height,
+        hp: d.stats[0].base_stat,
         img: d.sprites.other.dream_world.front_default,
         types: d.types.map(v => v.type.name),
         abilities: a
