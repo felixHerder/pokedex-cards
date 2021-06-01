@@ -50,7 +50,6 @@ class App extends Component {
 
   loadPokeGen(gen) {
     const genArr = [[151, 0], [100, 151], [135, 251], [107, 386], [156, 493], [72, 649], [88, 721], [89, 809]];
-    console.log(gen, ':', genArr[gen][0], genArr[gen][1]);
     //check for local storage cache
     const pokedata = localStorage.getItem('pokedata-gen' + gen);
     if (pokedata) {
@@ -93,7 +92,7 @@ class App extends Component {
       });
       const a = await Promise.all(abilities);
       //show progress
-      this.setState({ currentPokemon: d.name, progress: this.state.progress + ((100 / count) * 1) },()=>console.log(this.state.progress));
+      this.setState({ currentPokemon: d.name, progress: this.state.progress + ((100 / count) * 1) });
       return {
         name: d.name,
         id: d.id,
