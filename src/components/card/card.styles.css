@@ -3,7 +3,7 @@
   padding: 7px;
   background: #776e39;
   border: 2px solid transparent;
-  background: linear-gradient(70deg,#ffffff, #000000, #ffffff);
+  background: linear-gradient(70deg,#ccc, #333, #ccc);
   border-radius: 15px;
   transition:  0.25s ease-out;
   box-shadow: 0 0  5px 0px  rgba(0, 0, 0, 0.6);
@@ -37,13 +37,13 @@
 .name{
   margin: 0;
   color: #eee;
-  font-size: 1.6rem;
+  font-size: 1.3rem;
   font-weight: bold;
   text-transform: capitalize;
 }
 .id{
   font-weight: normal;
-  font-size: 1rem;
+  font-size: .8rem;
   color:#ccc;
 }
 .hp{
@@ -65,8 +65,8 @@
   overflow: hidden;
 }
 
-img{
-  max-width:50%;
+.image-container img{
+  max-width:65%;
   margin-bottom: -25px;
   max-height: 150px;
   filter: drop-shadow(0px 0px 25px rgba(255, 217, 167, 0.5));
@@ -234,6 +234,9 @@ img{
 }
 .ghost{
   background: rgb(214, 214, 214);
+}
+.dark{
+  background: rgb(107, 103, 117);
 }
 
 

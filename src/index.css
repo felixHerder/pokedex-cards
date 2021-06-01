@@ -7,17 +7,15 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* width */
 ::-webkit-scrollbar {
   width: 16px;
 }
 
-/* Track */
 ::-webkit-scrollbar-track {
   background: #222;
 }
 
-/* Handle */
+
 ::-webkit-scrollbar-thumb {
   background: #555;
   border-radius: 15px;
@@ -25,7 +23,7 @@ body {
   background-clip: content-box;
 }
 
-/* Handle on hover */
+
 ::-webkit-scrollbar-thumb:hover {
   background: #666;
   border: 3px solid transparent;

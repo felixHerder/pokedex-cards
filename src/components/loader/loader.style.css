@@ -1,0 +1,22 @@
+.loader{
+  height: 90vh;
+  width:100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.loader img { 
+  width:64px;
+  animation: grow .5s ease-in-out alternate infinite;
+}
+
+
+@keyframes grow{
+  0%{
+    transform: scale(1);
+  }
+  100%{
+    transform: scale(1.1);
+  }
+}
+

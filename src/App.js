@@ -2,48 +2,79 @@ import React, { Component } from 'react';
 import './App.css';
 import { CardList } from './components/card-list/card-list.component';
 import { SearchBox } from './components/searchbox/searchbox.component';
-
+import { Loader } from './components/loader/loader.component';
 class App extends Component {
   constructor() {
     super();
     this.state = {
       pokecards: [],
       searchBox: '',
-      loading: true
+      loading: true,
+      progress: 0,
+      currentPokemon: ''
     }
     this.searchBoxChange = this.searchBoxChange.bind(this);
+    this.selectChange = this.selectChange.bind(this)
   }
-  
+
   render() {
     return (
       <div className="App">
-        <SearchBox searchBoxChange={this.searchBoxChange}/>
-        <CardList pokecards={this.state.pokecards} searchBox={this.state.searchBox}/>
+        <SearchBox searchBoxChange={this.searchBoxChange}
+          selectChange={this.selectChange}
+          loading={this.state.loading}
+          currentPokemon={this.state.currentPokemon}
+          progress={this.state.progress}
+        />
+        <Loader loading={this.state.loading} />
+        <CardList pokecards={this.state.pokecards} searchBox={this.state.searchBox} />
       </div>
     );
   }
-  searchBoxChange(e){
-    this.setState({searchBox: e.target.value});
-  
-  }
+
+  //load gen 1 on startup from cache or api
   componentDidMount() {
-    //cache to local storage
-    if (localStorage.getItem('pokedata')) {
-      this.setState({ pokecards: JSON.parse(localStorage.getItem('pokedata')) });
+    this.loadPokeGen(0);
+
+  }
+
+  searchBoxChange(e) {
+    this.setState({ searchBox: e.target.value });
+  }
+
+  selectChange(e) {
+    this.setState({ pokecards: [] });
+    this.setState({ loading: true });
+    this.loadPokeGen(parseInt(e.target.value));
+  }
+
+  loadPokeGen(gen) {
+    const genArr = [[151, 0], [100, 151], [135, 251], [107, 386], [156, 493], [72, 649], [88, 721], [89, 809]];
+    console.log(gen, ':', genArr[gen][0], genArr[gen][1]);
+    //check for local storage cache
+    const pokedata = localStorage.getItem('pokedata-gen' + gen);
+    if (pokedata) {
+      this.setState({ pokecards: JSON.parse(pokedata) });
       console.log('data loaded from storage');
-    } else {
-      this.getPokeData(151)
-        .then(data => this.setState({ pokecards: data },
-          () => localStorage.setItem('pokedata', JSON.stringify(this.state.pokecards))));
+      this.setState({ loading: false });
+    } else { //load data from api and cache in storage
+      this.getPokeData(genArr[gen][0], genArr[gen][1])
+        .then(data => {
+          this.setState({ pokecards: data },
+            () => localStorage.setItem('pokedata-gen' + gen, JSON.stringify(this.state.pokecards)));
+          this.setState({ loading: false, progress: 0, currentPokemon: '' });
+        });
       console.log('data loaded from api');
     }
   }
-  async getPokeData(count) {
+
+  //get data from api
+  async getPokeData(count, offset) {
     //fetch list of pokemon
-    const resp = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=${count}`);
+    const resp = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=${count}&offset=${offset}`);
     const data = await resp.json();
     //fetch filtered data for each pokemon
-    const processed = data.results.map(async result => {
+    const processed = data.results.map(async (result, i) => {
       const r = await fetch(result.url);
       const d = await r.json();
       //fetch abilities effects
@@ -61,13 +92,16 @@ class App extends Component {
         }
       });
       const a = await Promise.all(abilities);
+      //show progress
+      this.setState({ currentPokemon: d.name, progress: this.state.progress + ((100 / count) * 1) },()=>console.log(this.state.progress));
       return {
         name: d.name,
         id: d.id,
         weight: d.weight,
         height: d.height,
         hp: d.stats[0].base_stat,
-        img: d.sprites.other.dream_world.front_default,
+        img: d.sprites.other.dream_world.front_default ? d.sprites.other.dream_world.front_default :
+          d.sprites.other['official-artwork'].front_default,
         types: d.types.map(v => v.type.name),
         abilities: a
       };
