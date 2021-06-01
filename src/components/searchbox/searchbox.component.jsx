@@ -1,18 +1,20 @@
 import React, { useState } from 'react';
 import './searchbox.style.css'
+import pokedex from './pokedex_logo.webp';
 
 export const SearchBox = (props) => {
   const [gen, setGen] = useState(0);
   return (
     <nav>
+      <img src={pokedex} alt="Pokedex logo" className="pokedex" />
+      <div className="loading-bar" style={{ width: props.progress + "%" }}>
+            </div>
       {
         props.loading ?
           <div className="loading-container">
             <p>Loading and caching data from pokeapi.co.
         <strong>{props.currentPokemon ? " Fetching: " + props.currentPokemon : ''}</strong>
             </p>
-            <div className="loading-bar" style={{ width: props.progress + "%" }}>
-            </div>
           </div>
           :
           <div className="nav-container">

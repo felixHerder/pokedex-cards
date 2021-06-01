@@ -6,7 +6,7 @@
   background: linear-gradient(70deg,#ccc, #333, #ccc);
   border-radius: 15px;
   transition:  0.25s ease-out;
-  box-shadow: 0 0  5px 0px  rgba(0, 0, 0, 0.6);
+  box-shadow: 0 2px  10px 0px  rgba(0, 0, 0, 0.6);
 }
 
 .card-container{
@@ -20,6 +20,8 @@
   padding:5px 15px;
   height: 360px;
   color:#eee;
+
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='6' height='6' viewBox='0 0 4 4'%3E%3Cpath fill='%23596772' fill-opacity='0.2' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E");
 }
 .card-border:hover{
   transform: scale(1.01);
@@ -136,9 +138,17 @@
   white-space: nowrap;
   text-overflow: ellipsis;
   margin-right: 5px;
+}
+.ability span label{
   cursor: pointer;
 }
-.ability span[title]:active::before{
+.ability span input{
+  display: none;
+}
+.abilities input:checked ~ .tooltip{
+  display:block;
+}
+.ability span .tooltip{
   content:attr(title);
   position: absolute;
   font-size: 1rem;
@@ -149,11 +159,13 @@
   border-radius: 5px;
   top: 50%;
   left:50%;
-  transform: translate(-50%,-50%);
+  padding: 10px;
+  transform: translate(-50%,-60px);
   white-space: normal;
   text-align: center;
   width: 100%;
   z-index: 2;
+  display: none;
 }
 
 

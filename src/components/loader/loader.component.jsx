@@ -1,9 +1,10 @@
 import './loader.style.css'
+import logo from "./logo192.png"
 
 export const Loader = (props)=>(
   props.loading ?
   <div className="loader">
-    <img src="./logo192.png" alt="Poke ball" />
+    <img src={logo} alt="Poke ball" />
   </div>
   : <>
   </>
