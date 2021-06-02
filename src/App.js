@@ -94,7 +94,7 @@ class App extends Component {
       });
       const a = await Promise.all(abilities);
       //show progress
-      this.setState({ currentPokemon: d.name, progress: this.state.progress + ((100 / count) * 1) });
+      this.setState((prevState,prevProps)=>({ currentPokemon: d.name, progress: prevState.progress + ((100 / count) * 1) }));
       return {
         name: d.name,
         id: d.id,
