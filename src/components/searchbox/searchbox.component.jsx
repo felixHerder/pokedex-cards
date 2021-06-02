@@ -6,9 +6,11 @@ export const SearchBox = (props) => {
   const [gen, setGen] = useState(0);
   return (
     <nav>
-      <img src={pokedex} alt="Pokedex logo" className="pokedex" />
+      <a href="https://pokeapi.co" title="pokeapi.co" rel="noreferrer" target="_blank">
+        <img src={pokedex} alt="Pokedex logo" className="pokedex" />
+      </a>
       <div className="loading-bar" style={{ width: props.progress + "%" }}>
-            </div>
+      </div>
       {
         props.loading ?
           <div className="loading-container">

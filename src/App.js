@@ -28,6 +28,8 @@ class App extends Component {
         />
         <Loader loading={this.state.loading} />
         <CardList pokecards={this.state.pokecards} searchBox={this.state.searchBox} />
+        <footer><a href="https://felixherder.space">felixherder.space</a>
+          Pokémon and Pokémon character names are trademarks of Nintendo.</footer>
       </div>
     );
   }
