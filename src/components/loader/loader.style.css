@@ -1,40 +1,28 @@
-.loader{
-  height:100vh;
-  width:100%;
+.loader {
+  height: 100vh;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: .2s; 
+  transition: 0.2s;
 }
-.loader img { 
+.loader img {
   position: absolute;
   margin-top: 40px;
   top: 50%;
   left: 50%;
-  transform: translate(-50%,-50%);
-  max-width:96px;
+  transform: translate(-50%, -50%);
+  max-width: 96px;
   width: 10%;
-  animation: move 1s alternate ease-in-out infinite, 
-  spin 1s alternate ease-in-out infinite;
-  filter: drop-shadow( 0 0 10px rgba(0, 39, 58, 0.3));
+  animation: spin 1s linear infinite;
+  filter: drop-shadow(0 0 10px rgba(0, 39, 58, 0.3));
 }
 
-
-@keyframes spin{
-  0%{
-    transform: translate(-50%,-50%) rotate(560deg) ;
+@keyframes spin {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
   }
-  100%{
-    transform: translate(-50%,-50%) rotate(0deg) ;
-  }
-}
-
-@keyframes move{
-  0%{
-    left:70%;
-  }
-
-  100%{
-    left:30%;
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
   }
 }
